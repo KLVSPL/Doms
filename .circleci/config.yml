@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: cimg/base:2022.03
+    
     steps:
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
       - run: chmod +x ./cake.sh
