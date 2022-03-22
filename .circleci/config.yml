@@ -4,7 +4,6 @@ jobs:
     docker:
       - image: jruby:9.3
     steps:
-      - checkout
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
       - run: chmod +x ./cake.sh
       - run: ./cake.sh
