@@ -5,6 +5,6 @@ jobs:
       - image: jruby:9.3
     steps:
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
-      
+    
       - run: chmod +x ./cake.sh
       - run: ./cake.sh
