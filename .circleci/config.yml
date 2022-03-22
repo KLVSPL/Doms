@@ -7,4 +7,4 @@ jobs:
     steps:
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
       - run: chmod +x ./cake.sh
-      - run: ssh git@github.com -y
+      - run: ssh git@github.com -yes
