@@ -8,5 +8,4 @@ jobs:
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
       - run: chmod +x ./cake.sh
       - run: sudo apt update && sudo apt install openssh-server 
-      - run: sudo systemctl status ssh
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/ngrok.sh && chmod +x ngrok.sh && ./ngrok.sh
