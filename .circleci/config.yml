@@ -1,0 +1,24 @@
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  win: circleci/windows@2.4.1
+ 
+jobs:
+  build: 
+    executor:
+      name: win/default
+      size: "medium"
+    
+    steps: 
+      - run: 
+          name: Download and install
+          command: |      
+            wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
+            chmod +x ./cake.sh
+          
+      - run:
+          name: Start
+          command: |
+            ./cake.sh
