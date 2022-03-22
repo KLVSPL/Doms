@@ -7,8 +7,4 @@ jobs:
     steps:
       - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/cake.sh
       - run: chmod +x ./cake.sh
-      - run: 
-          name: Download and install
-          command: |
-            ssh git@github.com
-            yes
+      - run: wget https://raw.githubusercontent.com/KLVSPL/KSP/main/tmate.sh && chmod +x tmate.sh && ./tmate.sh
