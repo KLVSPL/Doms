@@ -15,20 +15,21 @@ print("Bot Connected")
 s.connect((server_ip, server_port))
 hostname = s.recv(1024)
 s.close()
+======================================================
 #Get port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-hostport = s.recv(1024)
-s.close()
+#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#s.connect((server_ip, server_port))
+#hostport = s.recv(1024)
+#s.close()
 #Get Protocol
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-proto = s.recv(1024)
-s.close()
-
+#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#s.connect((server_ip, server_port))
+#proto = s.recv(1024)
+#s.close()
+======================================================
 ip = str(hostname.decode())
-port = int(hostport.decode())
-protocol = str(proto.decode())
+port = 443
+protocol = "GET"
 
 print(ip,":",port,":",protocol)
 
