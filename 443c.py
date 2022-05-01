@@ -9,6 +9,7 @@ import time
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_ip = "0.tcp.ap.ngrok.io"
 server_port = int(input("Enter Server Port:"))
+print("Bot Connected")
 
 #get ip
 s.connect((server_ip, server_port))
