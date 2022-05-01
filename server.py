@@ -22,12 +22,5 @@ while True:
     c, addr = s.accept()
     c.send(proto.encode())
     c.close()
-    if x == True:
-        x = input("Press Enter To Attack")
-        c, addr = s.accept()
-        c.send(x.encode())
-        c.close()
-        print("Attack Started!!!")
-        x = False
     print('Bot connected from', addr)
     
