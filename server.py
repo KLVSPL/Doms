@@ -1,18 +1,24 @@
 import socket
-s = socket.socket()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print('Socket succesfully created')
 port = 10242
-s.bind(('', port))
+s.bind(("", port))
 print(f'socket binded to port{port}')
 s.listen()
 print('Socket is listening')
 hostname = input("IP:")
-port = input("Port:")
+hostport = input("Port:")
+proto = input("Protocol:")
 while True:
     c, addr = s.accept()
-    print('Got connection from', addr)
     c.send(hostname.encode())
     c.close()
+
     c, addr = s.accept()
-    c.send(port.encode())
+    c.send(hostport.encode())
     c.close()
+
+    c, addr = s.accept()
+    c.send(proto.encode())
+    c.close()
+    print('Bot connected from', addr)
