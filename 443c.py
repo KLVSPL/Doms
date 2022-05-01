@@ -31,11 +31,8 @@ port = int(hostport.decode())
 protocol = str(proto.decode())
 
 print(ip,":",port,":",protocol)
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-at_x = s.recv(1024)
-s.close()
-at_start = str(at_x.decode())
+
+time.sleep(3)
 
 useragents = [""]
 acceptall = [""]
