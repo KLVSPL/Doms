@@ -14,13 +14,13 @@ while True:
     c, addr = s.accept()
     c.send(hostname.encode())
     c.close()
-
-    c, addr = s.accept()
-    c.send(hostport.encode())
-    c.close()
-
-    c, addr = s.accept()
-    c.send(proto.encode())
-    c.close()
     print('Bot connected from', addr)
+    #c, addr = s.accept()
+    #c.send(hostport.encode())
+    #c.close()
+
+    #c, addr = s.accept()
+    #c.send(proto.encode())
+    #c.close()
+    #print('Bot connected from', addr)
     
