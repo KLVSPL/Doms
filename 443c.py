@@ -7,8 +7,8 @@ import requests
 import time
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_ip = "127.0.0.1"
-server_port = 10242
+server_ip = "0.tcp.ap.ngrok.io"
+server_port = input(int("Enter Server Port:"))
 
 #get ip
 s.connect((server_ip, server_port))
