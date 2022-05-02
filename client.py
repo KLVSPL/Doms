@@ -1,24 +1,28 @@
 import socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_ip = "0.tcp.ap.ngrok.io"
-server_port = int(input("Enter Server Port:"))
+import time
+#server_ip = "0.tcp.ap.ngrok.io"
+#server_port = int(input("Enter Server Port:"))
+SERVER_IP = "127.0.0.1"
+SERVER_PORT = 10242
+ADDR = (SERVER_IP, SERVER_PORT)
+SIZE = 1024
+FORMAT = "utf-8"
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #get ip
-s.connect((server_ip, server_port))
-hostname = s.recv(1024)
-ip = str(hostname.decode())
-s.close()
-#Get port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-hostport = s.recv(1024)
-port = int(hostport.decode())
-s.close()
-#Get Protocol
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-proto = s.recv(1024)
-protocol = str(proto.decode())
-s.close()
+s.connect((ADDR))
+hostname = s.recv(SIZE).decode(FORMAT)
+ip = str(hostname)
 
-print(ip,port,protocol)
+#Get port
+hostport = s.recv(SIZE).decode(FORMAT)
+port = int(hostport)
+
+#Get Protocol
+proto = s.recv(SIZE).decode(FORMAT)
+protocol = str(proto)
+
+s.close()
+while True:
+    print(ip,port,protocol)
+    time.sleep(1)
